@@ -1,0 +1,15 @@
+faiss-cpu
+sentence-transformers
+rank_bm25
+groq
+numpy
+pypdf
+python-dotenv
+langdetect
+pyarabic
+pymupdf
+pillow
+arabic-reshaper
+python-bidi
+# Streamlit UI
+streamlit>=1.38
