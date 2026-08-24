@@ -378,16 +378,6 @@ if not st.session_state.messages and st.session_state._had_messages_before:
 # Sidebar
 # --------------------------------------------------------------------------
 with st.sidebar:
-    st.markdown(f"👤 **{st.session_state.username}**")
-    if st.button("🚪 Logout / تسجيل خروج", use_container_width=True):
-            st.session_state.authenticated = False
-            st.session_state.username = None
-            st.session_state.messages = []
-            st.session_state.pop("_all_chats_cache", None)
-            st.session_state.pop("current_chat_id", None)
-            st.session_state._had_messages_before = False
-            st.query_params.clear()
-            st.rerun()
 
     st.markdown("## 📖 Arabic Chat / دردشة عربية")
     st.caption("Retrivel · Rerank · Response · Result")
@@ -581,6 +571,18 @@ with st.sidebar:
         st.write(f"Embedding Model: `{config.EMBEDDING_MODEL_NAME}`")
         st.write(f"Reranker Model: `{config.RERANKER_MODEL_NAME}`")
         st.write(f"LLM: `{config.GROQ_MODEL_NAME}`")
+
+    st.divider()
+    st.markdown(f"👤 **{st.session_state.username}**")
+    if st.button("🚪 Logout / تسجيل خروج", use_container_width=True):
+        st.session_state.authenticated = False
+        st.session_state.username = None
+        st.session_state.messages = []
+        st.session_state.pop("_all_chats_cache", None)
+        st.session_state.pop("current_chat_id", None)
+        st.session_state._had_messages_before = False
+        st.query_params.clear()
+        st.rerun()
 
 # Main chat area
 st.markdown(
